@@ -11,11 +11,12 @@ public class Main {
     public static void main(String[] args) {
         URI uri = URI.create(BASE_URI);
 
-        // Start the embedded Grizzly server with our JAX-RS application.
+        // Start the embedded Grizzly server with the versioned JAX-RS app.
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, new ApiApplication());
 
         System.out.println("Server running at " + uri);
 
+        // Make sure the server shuts down cleanly when the JVM exits.
         Runtime.getRuntime().addShutdownHook(new Thread(server::shutdownNow));
     }
 }

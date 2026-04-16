@@ -6,7 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 @ApplicationPath("/api/v1")
 public class ApiApplication extends ResourceConfig {
     public ApiApplication() {
-        // Scan the resource, mapper, and filter packages.
+        // Register all JAX-RS classes in the application packages.
         packages(
                 "com.mycompany.smart.campus.resource",
                 "com.mycompany.smart.campus.mapper",

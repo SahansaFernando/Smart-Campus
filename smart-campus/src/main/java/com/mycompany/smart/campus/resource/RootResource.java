@@ -15,6 +15,7 @@ public class RootResource {
 
     @GET
     public Response test() {
+        // Return basic discovery metadata and top-level links.
         Map<String, Object> info = new LinkedHashMap<>();
         info.put("api", "Smart Campus API");
         info.put("version", "v1");
