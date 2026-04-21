@@ -9,6 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Path("sensors")
@@ -74,7 +75,9 @@ public class SensorResource {
         CampusStore.SENSORS.put(sensor.getId(), sensor);
         room.getSensorIds().add(sensor.getId());
 
-        return Response.status(Response.Status.CREATED).entity(sensor).build();
+        return Response.status(Response.Status.CREATED)
+                .entity(Collections.singletonMap("id", sensor.getId()))
+                .build();
     }
 
     // GET /api/v1/sensors/{sensorId}

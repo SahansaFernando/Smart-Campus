@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Collections;
 import java.util.UUID;
 
 @Produces(MediaType.APPLICATION_JSON)
@@ -70,6 +71,8 @@ public class SensorReadingResource {
         CampusStore.readingsFor(sensorId).add(reading);
         sensor.setCurrentValue(reading.getValue());
 
-        return Response.status(Response.Status.CREATED).entity(reading).build();
+        return Response.status(Response.Status.CREATED)
+                .entity(Collections.singletonMap("id", reading.getId()))
+                .build();
     }
 }

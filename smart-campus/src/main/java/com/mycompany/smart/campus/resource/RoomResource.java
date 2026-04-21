@@ -48,7 +48,7 @@ public class RoomResource {
         CampusStore.ROOMS.put(room.getId(), room);
 
         return Response.status(Response.Status.CREATED)
-                .entity(room)
+                .entity(Collections.singletonMap("id", room.getId()))
                 .build();
     }
 
