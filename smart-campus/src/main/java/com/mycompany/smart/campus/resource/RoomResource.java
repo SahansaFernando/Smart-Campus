@@ -48,6 +48,7 @@ public class RoomResource {
         CampusStore.ROOMS.put(room.getId(), room);
 
         return Response.status(Response.Status.CREATED)
+                .header("Location", "/api/v1/rooms/" + room.getId())
                 .entity(Collections.singletonMap("id", room.getId()))
                 .build();
     }
