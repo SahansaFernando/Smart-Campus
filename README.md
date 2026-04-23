@@ -74,22 +74,27 @@ JAX-RS filters are advantageous because logging is a cross-cutting concern that 
 ## Sample Curl Commands
 
 1.Discovery
+
 curl http://localhost:8080/api/v1
 
 2.Create a room
+
 curl -X POST http://localhost:8080/api/v1/rooms ^
   -H "Content-Type: application/json" ^
   -d "{\"id\":\"R101\",\"name\":\"Lecture Hall 1\",\"capacity\":40,\"sensorIds\":[]}"
 
 3.Create a sensor
+
 curl -X POST http://localhost:8080/api/v1/sensors ^
   -H "Content-Type: application/json" ^
   -d "{\"id\":\"S1\",\"type\":\"CO2\",\"status\":\"ACTIVE\",\"currentValue\":0,\"roomId\":\"R101\"}"
 
 4.Filter sensors by type
+
 curl "http://localhost:8080/api/v1/sensors?type=CO2"
 
 5.Add a sensor reading
+
 curl -X POST http://localhost:8080/api/v1/sensors/S1/readings ^
   -H "Content-Type: application/json" ^
   -d "{\"value\":450.0}"
