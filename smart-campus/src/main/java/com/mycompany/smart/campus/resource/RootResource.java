@@ -29,4 +29,5 @@ public class RootResource {
 
         return Response.ok(info).build();
     }
+
 }
